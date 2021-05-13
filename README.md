@@ -56,7 +56,10 @@
 | 42| [What Is The Difference Between Nodejs AJAX And JQuery?](#what-is-the-difference-between-nodejs-ajax-and-jquery) |
 | 43| [What Is EventEmitter In NodeJs? ](#what-is-eventemitter-in-nodejs) |
 | 44| [What Is A Child_process Module In NodeJs? ](#what-is-a-child_process-module-in-nodejs) |
-| 45| [What is the architecture of node? ]
+| 45| [What is the architecture of node? ](#What-is-the-architecture-of-node?) |
+| 46| [What are the data types in Node.js? ](#What-are-the-data-types-in-Node.js?) |
+| 47| [How do Node.js works? ](#How-do-Node.js-works?) |
+| 48| [What are Promises in Node.js?](#What-are-Promises-in-Node.js?) |
 
 ## Node Js
 
@@ -527,7 +530,7 @@
 
 **[ Back to Top ⬆ ](#table-of-contents---node-js)**
 
-45. ###What is the architecture of node?
+45. ###	What is the architecture of node?
 
 ![](https://i.imgur.com/lqqLltb.png)
 
@@ -545,8 +548,81 @@ V8 is Google's open source high-performance JavaScript engine, written in C++ an
 
 #### libuv
 libuv is a multi-platform support library with a focus on asynchronous I/O. It was primarily developed for use by Node.js, but it's also used by Luvit, Julia, pyuv, and others.
+.
+[ Back to Top ⬆ ](#table-of-contents---node-js)**
+
+46. ###	What are the data types in Node.js?
+
+*Primitive Types*
+
+* String
+* Number
+* Boolean
+* Undefined
+* Null
+* RegExp
+
+* `Buffer`: Node.js includes an additional data type called Buffer (not available in browser\'s JavaScript). Buffer is mainly used to store binary data, while reading from a file or receiving packets over the network.
 
 
+[ Back to Top ⬆ ](#table-of-contents---node-js)**
+
+47. ###	How do Node.js works?
+
+<p align="center">
+  <img src="assets/event-loop.png" alt="Node Architecture" width="800px" />
+</p>
+
+Node is completely event-driven. Basically the server consists of one thread processing one event after another.
+
+A new request coming in is one kind of event. The server starts processing it and when there is a blocking IO operation, it does not wait until it completes and instead registers a callback function. The server then immediately starts to process another event (maybe another request). When the IO operation is finished, that is another kind of event, and the server will process it (i.e. continue working on the request) by executing the callback as soon as it has time.
+
+So the server never needs to create additional threads or switch between threads, which means it has very little overhead. If you want to make full use of multiple hardware cores, you just start multiple instances of node.js
+
+Node JS Platform does not follow Request/Response Multi-Threaded Stateless Model. It follows Single Threaded with Event Loop Model. Node JS Processing model mainly based on Javascript Event based model with Javascript callback mechanism.  
+  
+**Single Threaded Event Loop Model Processing Steps:**
+
+* Clients Send request to Web Server.
+* Node JS Web Server internally maintains a Limited Thread pool to provide services to the Client Requests.
+* Node JS Web Server receives those requests and places them into a Queue. It is known as “Event Queue”.
+* Node JS Web Server internally has a Component, known as “Event Loop”. Why it got this name is that it uses indefinite loop to receive requests and process them. 
+* Event Loop uses Single Thread only. It is main heart of Node JS Platform Processing Model.
+* Even Loop checks any Client Request is placed in Event Queue. If no, then wait for incoming requests for indefinitely.
+* If yes, then pick up one Client Request from Event Queue
+    * Starts process that Client Request
+    * If that Client Request Does Not requires any Blocking IO Operations, then process everything, prepare response and send it back to client.
+    * If that Client Request requires some Blocking IO Operations like interacting with Database, File System, External Services then it will follow different approach
+        * Checks Threads availability from Internal Thread Pool
+        * Picks up one Thread and assign this Client Request to that thread.
+        * That Thread is responsible for taking that request, process it, perform Blocking IO operations, prepare response and send it back to the Event Loop
+        * Event Loop in turn, sends that Response to the respective Client.
+
+[ Back to Top ⬆ ](#table-of-contents---node-js)**
+
+48. ###	What are Promises in Node.js?
+
+It allows to associate handlers to an asynchronous action\'s eventual success value or failure reason. This lets asynchronous methods return values like synchronous methods: instead of the final value, the asynchronous method returns a promise for the value at some point in the future.
+
+Promises in node.js promised to do some work and then had separate callbacks that would be executed for success and failure as well as handling timeouts. Another way to think of promises in node.js was that they were emitters that could emit only two events: success and error.The cool thing about promises is you can combine them into dependency chains (do Promise C only when Promise A and Promise B complete).
+
+The core idea behind promises is that a promise represents the result of an asynchronous operation. A promise is in one of three different states:
+
+* pending - The initial state of a promise.
+* fulfilled - The state of a promise representing a successful operation.
+* rejected - The state of a promise representing a failed operation.
+Once a promise is fulfilled or rejected, it is immutable (i.e. it can never change again).  
+
+**Creating a Promise**
+
+```javascript
+var myPromise = new Promise(function(resolve, reject){
+   ....
+})
+```
+
+
+[ Back to Top ⬆ ](#table-of-contents---node-js)**
 ### Table of Contents - Express JS
 
 
