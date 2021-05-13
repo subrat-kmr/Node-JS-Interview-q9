@@ -57,9 +57,9 @@
 | 43| [What Is EventEmitter In NodeJs? ](#what-is-eventemitter-in-nodejs) |
 | 44| [What Is A Child_process Module In NodeJs? ](#what-is-a-child_process-module-in-nodejs) |
 | 45| [What is the architecture of node? ](#What-is-the-architecture-of-node) |
-| 46| [What are the data types in Node.js? ](#What-are-the-data-types-in-Node.js) |
-| 47| [How do Node.js works? ](#How-do-Node.js-works) |
-| 48| [What are Promises in Node.js?](#What-are-Promises-in-Node.js) |
+| 46| [What are the data types in Node.js? ](#What-are-the-data-types-in-NodeJs) |
+| 47| [How do NodeJs works? ](#How-do-NodeJs-works) |
+| 48| [What are Promises in NodeJs?](#What-are-Promises-in-NodeJs) |
 
 ## Node Js
 
