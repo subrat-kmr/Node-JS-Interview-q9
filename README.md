@@ -56,6 +56,7 @@
 | 42| [What Is The Difference Between Nodejs AJAX And JQuery?](#what-is-the-difference-between-nodejs-ajax-and-jquery) |
 | 43| [What Is EventEmitter In NodeJs? ](#what-is-eventemitter-in-nodejs) |
 | 44| [What Is A Child_process Module In NodeJs? ](#what-is-a-child_process-module-in-nodejs) |
+| 45| [What is the architecture of node? ]
 
 ## Node Js
 
@@ -525,6 +526,25 @@
 	.
 
 **[ Back to Top ⬆ ](#table-of-contents---node-js)**
+
+45. ###What is the architecture of node?
+
+![](https://i.imgur.com/lqqLltb.png)
+
+#### Application & Modules
+This is where you write your application & installed modules live. Usually they are written in plain Javascript.
+
+#### C/C++ bindings
+Various glue code and add-ons, it provides Javascript `<=>` C/C++ bridges
+
+#### Addons
+Node.js Addons are dynamically-linked shared objects, written in C++, that can be loaded into Node.js using the require() function, and used just as if they were an ordinary Node.js module.
+
+#### V8
+V8 is Google's open source high-performance JavaScript engine, written in C++ and used in Google Chrome, the open source browser from Google, and in Node.js
+
+#### libuv
+libuv is a multi-platform support library with a focus on asynchronous I/O. It was primarily developed for use by Node.js, but it's also used by Luvit, Julia, pyuv, and others.
 
 
 ### Table of Contents - Express JS
