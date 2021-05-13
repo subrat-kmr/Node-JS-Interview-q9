@@ -56,10 +56,10 @@
 | 42| [What Is The Difference Between Nodejs AJAX And JQuery?](#what-is-the-difference-between-nodejs-ajax-and-jquery) |
 | 43| [What Is EventEmitter In NodeJs? ](#what-is-eventemitter-in-nodejs) |
 | 44| [What Is A Child_process Module In NodeJs? ](#what-is-a-child_process-module-in-nodejs) |
-| 45| [What is the architecture of node? ](#What-is-the-architecture-of-node?) |
-| 46| [What are the data types in Node.js? ](#What-are-the-data-types-in-Node.js?) |
-| 47| [How do Node.js works? ](#How-do-Node.js-works?) |
-| 48| [What are Promises in Node.js?](#What-are-Promises-in-Node.js?) |
+| 45| [What is the architecture of node? ](#What-is-the-architecture-of-node) |
+| 46| [What are the data types in Node.js? ](#What-are-the-data-types-in-Node.js) |
+| 47| [How do Node.js works? ](#How-do-Node.js-works) |
+| 48| [What are Promises in Node.js?](#What-are-Promises-in-Node.js) |
 
 ## Node Js
 
@@ -569,9 +569,7 @@ libuv is a multi-platform support library with a focus on asynchronous I/O. It w
 
 47. ###	How do Node.js works?
 
-<p align="center">
-  <img src="assets/event-loop.png" alt="Node Architecture" width="800px" />
-</p>
+![](https://raw.githubusercontent.com/learning-zone/nodejs-interview-questions/master/assets/event-loop.png)
 
 Node is completely event-driven. Basically the server consists of one thread processing one event after another.
 
